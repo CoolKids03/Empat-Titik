@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "empat-titik",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-04",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/ws"]
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "GAME_ROOM",
+        "class_name": "GameRoom"
+      }
+    ]
+  },
+  "exports": {
+    "GameRoom": {
+      "type": "durable-object",
+      "storage": "sqlite"
+    }
+  }
+}
